@@ -6,6 +6,8 @@
       <FormItem field-name="备注" placeholder="在这里输入备注" @update:value="onUpdateNotes" />
     </div>
     <Tags />
+    {{count}}
+    <button @click="add">+1</button>
   </Layout>
 </template>
 
@@ -19,10 +21,21 @@ import { Component } from "vue-property-decorator";
 import store from "@/store/index2.ts";
 
 @Component({
-  components: { Tags, FormItem, Types, NumberPad }
+  components: { Tags, FormItem, Types, NumberPad },
+  computed: {
+    count() {
+      return store.count;
+    },
+    recordList() {
+      return store.recordList;
+    }
+  }
 })
 export default class Money extends Vue {
-  recordList = store.recordList;
+  add() {
+    store.addCount();
+  }
+
   record: RecordItem = {
     tags: [],
     notes: "",
