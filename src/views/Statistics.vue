@@ -101,7 +101,6 @@ export default class Statistics extends Vue {
   }
 
   type = "-";
-
   recordTypeList = recordTypeList;
 }
 </script>
@@ -113,9 +112,9 @@ export default class Statistics extends Vue {
 }
 ::v-deep {
   .type-tabs-item {
-    background: #c4c4c4;
+    background: white;
     &.selected {
-      background: white;
+      background: #ffda44;
       &::after {
         display: none;
       }
